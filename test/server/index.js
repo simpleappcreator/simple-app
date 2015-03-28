@@ -1,7 +1,6 @@
 var console = require('unclog');
 var app = require('simple-app');
 
-
 app.get('/get', function(req, res) {
     res.send('/get');
 });
