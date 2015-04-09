@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/simpleappcreator/simple-app",
     "dependencies": {
+        "sitemap": "latest",
         "merge": "latest",
         "async": "^0.9.0",
         "bluebird": "^2.4.1",
