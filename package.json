@@ -59,7 +59,8 @@
     "socket.io-events": "^0.4.2",
     "stylus": "^0.49.1",
     "uglify-js": "^2.4.16",
-    "utils-merge": "^1.0.0"
+    "utils-merge": "^1.0.0",
+    "wrench": "^1.5.8"
   },
   "gitHead": "abe96634324ff49c67199d20c8bfa050169da7ec",
   "_id": "simple-app@0.0.14",
