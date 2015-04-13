@@ -47,6 +47,7 @@
     "on-finished": "^2.2.0",
     "passport": "^0.2.1",
     "passport-google": "^0.3.0",
+    "passport-facebook": "^0.2.0",
     "passport-local": "^1.0.0",
     "passport.socketio": "^3.3.0",
     "q": "^1.1.2",
