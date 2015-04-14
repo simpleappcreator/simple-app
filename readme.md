@@ -21,8 +21,6 @@ To configure routes, you can do
         res.render('index')
     });
 
-Which is actually exactly what it does by default, if you don't plan on overwriting that route yourself. It also has a default view `index` of its own which is what you see in screenshot above.
-
 Since a module in Node.js is only loaded once, you can include it in any file and configure it there. For example a separate file for routes
 
 >**index.js**
