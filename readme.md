@@ -270,7 +270,7 @@ You just include the tagname `header-nav` in your HTML and Angular injects this 
 Lot of commonly needed client-side CSS and javascripts libraries are included.
 And this is where the resources listed in `app.config.resources` come in handy!
 
-Here's what the default header-partial that's included looks like
+Here's what the default (partial) header view that's included looks like:
 
     <!DOCTYPE html><html ng-app="app" ng-controller="app">
     <head>
@@ -289,9 +289,7 @@ Here's what the default header-partial that's included looks like
     </head><body>
     <header-nav></header-nav><main>
 
-Couple of things to note here.
-
-Firstly, I know it's a bad practice to include all that in the `<head>`. What's to be noted here is that
+Ignoring the bad practice of including all that in the `<head>`, what's to be noted here is that
 the Jade file `views/partials/header.jade` that generated it is included by default, but you'll probably use your own version of a header etc anyways, so the layout itself is not as important.
 
 What's more important is all those CSS and javascript libraries and other stuff is available on client-side without you having put anything in your app `public` or `client` folder. You can use them in your own layouts wherever you want.
