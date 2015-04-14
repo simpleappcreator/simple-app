@@ -2,6 +2,8 @@
 
 A simple module to kick-start your Node.js app development.
 
+    npm install simple-app
+
 All you have to do is require it!
 
 ![screenshot][1]
@@ -9,6 +11,7 @@ All you have to do is require it!
 It has all the Express, Mongoose, Socket.io, Jade, Passport, and all that stuff pre-configured for you.
 
 It assists you without getting in your way, or your style of doing things.
+
 
 ##Routing
 
@@ -53,7 +56,7 @@ It can minify your resources! If you set an environment variable or config varia
 
 ## Configuration
 
-You can configure the app, like IP address, name, domain name it's hosted on (for generating Sitemap; it does that too), and whether the app is in development mode or production mode.
+You can configure the app, like it's name, IP address, port, external domain name that it's hosted on (for generating Sitemap), and whether the app is in development mode or production mode.
 
 There are two ways to configure these settings:
 
@@ -110,7 +113,7 @@ There's also some helper middlewares
 
 
 
-## Routes revisited (advanced stuff)
+## Routes (revisited)
 
 The routes should be configured with `app.<verb>`. This is actually a wrapper for the original `app.<verb>` which would've been available if you were to configure Express manually. It's still available in `app._<verb>`. But the wrapper serves an important function.
 
@@ -126,7 +129,7 @@ Same could be done to disable the default error handlers if you wish to implemen
 
 
 
-## Client-side revisited (advanced stuff)
+## Client-side (revisited)
 
 It has a lot of commonly needed views, like header/footer, error page, login/logout/register pages etc.
 And it also has a lot of commonly needed client-side CSS and javascripts libraries.
@@ -175,9 +178,7 @@ Furthermore, if you look at the actual jade file, you'll see that it includes al
             else if(!dev && resources[topdir].js.min)
               script(src="/#{resources[topdir].js.min}")
 
----
-
-If that cup of tea tastes bad, you don't have to drink it. :) It's just an option.
+If this cup of tea tastes bad, you don't have to drink it. :) It's just an option.
 
 
 
