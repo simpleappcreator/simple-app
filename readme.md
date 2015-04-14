@@ -78,14 +78,15 @@ There are two ways to configure these settings:
         config.port = 10000;
         config.hostname="www.myapp.com"
 
-It tries to normalize all setting names' cases to lowercase, and having several different aliases for same settings like app/appname/name/APP_NAME etc.
+It tries to normalize all setting names to lowercase, and having several different aliases for same settings names like app/appname/name/APP_NAME etc.
+[More info in the source](https://github.com/simpleappcreator/simple-app/blob/master/lib/config.js)
 
 All these settings are in `app.config`
 
 
 ## Submodules
 
-It uses and makes available various frequantly used modules that you might need in your app.
+It uses and makes available frequently used modules that you might need in your app.
 
 #### [Passport](https://github.com/jaredhanson/passport)
 
@@ -102,9 +103,9 @@ which handles errors and logs messages automatically
     DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
 
-And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`
+And since `serializeUser` is almost always exactly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`
 
-Nevertheless you can still over-ride however you want. You can even over-ride using `app.passport.de/serializeUser`
+Nevertheless you can still over-ride however you want, using either the wrappers or directly using `app.passport.de/serializeUser`
 
 ---
 
