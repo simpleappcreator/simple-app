@@ -51,14 +51,19 @@ Anything in your `public` or `client` directory is available as a static resourc
 
 ## Minification
 
-It can minify your resources! If you set an environment variable or config variable `minify`, it'll minify all the CSS and JS files when the app starts up.
+Minify your resources! If you set an environment variable or config variable `minify`, it'll minify all the CSS and JS files when the app starts up.
 For Stylus styles, it'll also convert and minify it as CSS.
 
 It'll include jQuery, Angular, Bootstrap *before* any other files.
 
-For all CSS and JS files in `public` dir, it'll create `public.css.min` and `public.js.min`
+For all CSS and JS files in `public` it'll create `public.css.min` and `public.js.min`
 
-For all CSS/Stylus and JS files in `client` dir, it'll create `app.css.min` and `app.js.min`
+For all CSS/Stylus and JS files in `client` it'll create `app.css.min` and `app.js.min`
+
+## Resources listing
+
+For convenience of including all the resources *programatically*, all the resources are enlisted in `app.config.resources`
+
 
 
 ## Configuration
