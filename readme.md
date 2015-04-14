@@ -87,10 +87,9 @@ All these settings are in `app.config`
 
 ## Submodules
 
-#### Passport
+#### [Passport](https://github.com/jaredhanson/passport)
 
-[Passport](https://github.com/jaredhanson/passport)
-is available as `app.passport` and strategies as `app.passport.local/google/facebook`
+Passport is available as `app.passport` and strategies as `app.passport.local/google/facebook`
 
 There's a wrapper to serialize/deserialize
 
@@ -119,10 +118,9 @@ There are also some helper middlewares
         res.render('secret');
     });
 
-#### Mongoose
+#### [Mongoose](https://github.com/Automattic/mongoose)
 
-[Mongoose](https://github.com/Automattic/mongoose)
-is available as `app.mongoose` which tries to connect to `mongodb://locahost/appname` by default, or if you configure a setting `mongodburl`
+Mongoose is available as `app.mongoose` which tries to connect to `mongodb://locahost/appname` by default, or if you configure a setting `mongodburl`
 
 It also tries to *guess* the URL if app is hosted on openshift or MONGOLAB etc.
 
@@ -135,13 +133,29 @@ When defining databases in your app you should use
 
 #### Mongo Session Store
 
-[Session](https://github.com/expressjs/session)s
+[Sessions](https://github.com/expressjs/session)
 are stored in the mongo database using
 [connect-mongo](https://github.com/kcbanner/connect-mongo).
 
-#### Stylus
 
-#### Jade-static
+#### [Jade](https://github.com/jadejs/jade)
+
+Default view engine is set to Jade. As usual you can change to whatever `app.set('view engine', 'hbs')`
+
+#### [Jade-static](https://github.com/shovon/jade-static)
+
+Serves Jade files in `client` (or `public`) directory as HTMLs
+
+`/client/components/header-nav/header-nav.jade` `=>` `GET /components/header-nav/header-nav.html`
+
+Since I found myself creating
+[directive components](http://google.com/search?q=angular+directive+components)
+in [AngularJS](http://angularjs.org/),
+I wanted to Jade using for [`templateUrl`](https://docs.angularjs.org/guide/directive#template-expanding-directive).
+
+
+#### [Stylus](https://github.com/learnboost/stylus)
+
 
 
 
