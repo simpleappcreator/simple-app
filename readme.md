@@ -90,9 +90,7 @@ Passport is available as `app.passport`, and strategies as `app.passport.local/g
 
 There's a wrapper to serialize/deserialize
 
->     app.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+>     app.serializeUser(function(user, done) { done(null, user.id); });
     app.deserializeUser(User.findById);
 
 which handles errors and logs messages automatically
