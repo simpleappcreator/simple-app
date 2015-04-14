@@ -99,7 +99,9 @@ which handles errors and logs messages automatically
     DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
 
-And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`. Nevertheless you can still over-ride however you want. You can even over-ride using `app.passport.de/serializeUser`.
+And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`.
+
+Nevertheless you can still over-ride however you want. You can even over-ride using `app.passport.de/serializeUser`.
 
 
 ---
