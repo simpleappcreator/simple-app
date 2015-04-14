@@ -4,8 +4,6 @@ A simple module to kick-start your Node.js app development.
 
     npm install simple-app
 
-All you have to do is require it!
-
 ![screenshot][1]
 
 It has all the Express, Mongoose, Socket.io, Jade, Passport, and all that stuff pre-configured for you.
