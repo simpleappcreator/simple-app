@@ -158,7 +158,8 @@ using [`templateUrl`](https://docs.angularjs.org/guide/directive#template-expand
 
 #### [Stylus](https://github.com/learnboost/stylus)
 
-
+All `.styl` files (in `client`/`public`) are injected with [nib](https://github.com/tj/nib)
+and served as `.css` files.
 
 
 
