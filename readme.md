@@ -171,6 +171,7 @@ res.locals #todo
 ## Development/Production mode #todo
 
 compress #todo
+
 no minificationin devel #todo
 
 
@@ -197,11 +198,11 @@ Sitemap generator #todo
 
 catch404s #todo
 
-    First, check if there's a viewfile that exists with the corresponding req.path #todo
+>First, check if there's a viewfile that exists with the corresponding req.path #todo
 
 catchErrors #todo
 
-    failed-lookup #todo
+>failed-lookup #todo
 
 
 #### routes #todo
