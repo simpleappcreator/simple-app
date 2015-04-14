@@ -250,7 +250,7 @@ For convenience of including all the resources *programatically*, all the resour
 
 Same everything goes for `app.config.resources.client`
 
-Note that `app.config.resources.public.js` is an Array and `app.config.resources.public.js.min` is a ***property*** which won't be enumerated when the array would be looped with `forEach` etc.
+Note that `app.config.resources.public.js` is an Array and `app.config.resources.public.js.min` is a ***property*** which won't be enumerated when the array would be looped with `forEach`
 
 `app.config.resources.angularApp` contains the names of all the folders in the `client/components` dir that have a JS file.
 
@@ -260,15 +260,15 @@ Useful for creating Angular directive components.
         header-nav.js
         header-nav.jade
 
-An Angular directive header-nav is available by default.
+An Angular directive `header-nav` is available by default.
 This is what creates the top bar in the default view.
-You just use the tagname `header-nav` in your HTML and Angular injects this directive.
+You just include the tagname `header-nav` in your HTML and Angular injects this directive.
 
 
 ## Client-side (revisited)
 
-And it also has a lot of commonly needed client-side CSS and javascripts libraries.
-This is where the resources listed in `app.config.resources` come in handy!
+Lot of commonly needed client-side CSS and javascripts libraries are included.
+And this is where the resources listed in `app.config.resources` come in handy!
 
 Here's what the default header-partial that's included looks like
 
