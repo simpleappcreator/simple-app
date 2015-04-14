@@ -1,1 +1,2 @@
-require('./server');
+var app = require('simple-app');
+
