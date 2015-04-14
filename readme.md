@@ -215,6 +215,12 @@ catchErrors #todo
 
 All can be removed `app.removeDefaultMiddlewares()` #todo
 
+#### views #todo
+
+Lot of commonly used views, like header/footer, error page, login/logout/register pages etc are included.
+
+
+
 
 ## Resources listing
 
@@ -240,7 +246,7 @@ For convenience of including all the resources *programatically*, all the resour
 
 `app.config.resources.public.js` would contain an array of *names* of all the JS files in `public` dir.
 `app.config.resources.public.js.fullpaths` would contain an array *full paths* of the same.
-`app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string `public.min.css`
+`app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string "public.min.css"
 
 Same everything goes for `app.config.resources.client`
 
@@ -261,8 +267,8 @@ You just use the tagname `header-nav` in your HTML and Angular injects this dire
 
 ## Client-side (revisited)
 
-It has a lot of commonly needed views, like header/footer, error page, login/logout/register pages etc.
 And it also has a lot of commonly needed client-side CSS and javascripts libraries.
+This is where the resources listed in `app.config.resources` come in handy!
 
 Here's what the default header-partial that's included looks like
 
@@ -290,7 +296,9 @@ the Jade file `views/partials/header.jade` that generated it is included by defa
 
 What's more important is all those CSS and javascript libraries and other stuff is available on client-side without you having put anything in your app `public` or `client` folder. You can use them in your own layouts wherever you want.
 
-Furthermore, if you look at the actual jade file, you'll see that it includes all those script *programatically*. So that you don't have to change the file anytime you include more client-side files, restarting the app will automatically make them available as certain variables which can be looped through. It tries to order them in a way to include jquery or angular before their plugins.
+Furthermore, if you look at the actual jade file, you'll see that it includes all those script *programatically*.
+So that you don't have to change the file anytime you include more client-side files,
+restarting the app will automatically make them available as certain variables which can be looped through.
 
     div Resources
       each topdir in ['public', 'client']
