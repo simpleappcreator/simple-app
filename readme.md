@@ -150,7 +150,7 @@ Serves Jade files in `client` (or `public`) directory as HTMLs
 
 `/client/components/header-nav/header-nav.jade` `=>` `GET /components/header-nav/header-nav.html`
 
-Found useful in creating
+Found it extremely useful in creating
 [AngularJS](http://angularjs.org/)
 [directive components](http://google.com/search?q=angular+directive+components)
 using [`templateUrl`](https://docs.angularjs.org/guide/directive#template-expanding-directive).
