@@ -57,7 +57,7 @@ It can minify your resources! If you set an environment variable or config varia
 
 ## Configuration
 
-You can configure the app, like it's name, IP address, port, external domain name that it's hosted on (for generating Sitemap), and whether the app is in development mode or production mode.
+You can configure the app, like its name, IP address, port, external domain name that it's hosted on (for generating Sitemap), and whether the app is in development mode or production mode.
 
 There are two ways to configure these settings:
 
@@ -86,21 +86,23 @@ All these settings are available in `app.config`
 
 #### Passport
 
-Passport has also been integrated and available as `app.passport`, and various strategies as `app.passport.local/google/facebook`.
+Passport is available as `app.passport`, and various strategies as `app.passport.local/google/facebook`.
 
-There's also a wrapper for serialize/deserialize with logging capability.
-
+There's a wrapper for serialize/deserialize
 
 >     app.serializeUser(function(user, done) {
         done(null, user.id);
     });
     app.deserializeUser(User.findById);
 
+which handles errors and logs messages automatically
 
-Sidenote: since serializing is almost always the same as above, without require any context relevant variable like `User`, it's pre-configured exactly like that. So you just have to pass your "`User.findById`" to `app.deserializeUser`
-
->     DeSerializing (54e8d8…cd1)
+>    Seriazed [user.user/name](54e8d8…cd1)
+    DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
+
+And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`
+
 
 ---
 
