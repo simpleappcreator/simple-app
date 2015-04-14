@@ -201,7 +201,7 @@ the Jade file `views/partials/header.jade` that generated it is included by defa
 
 What's more important is all those CSS and javascript libraries and other stuff is available on client-side without you having put anything in your app `public` or `client` folder. You can use them in your own layouts wherever you want.
 
-Furthermore, if you look at the actual jade file, you'll see that it includes all those script *programatically*. So that you don't have to change the file anytime you include more client-side files, the app will automatically make them available as certain variables which can be looped through. It tries to order them in a way to include jquery or angular before their plugins.
+Furthermore, if you look at the actual jade file, you'll see that it includes all those script *programatically*. So that you don't have to change the file anytime you include more client-side files, restarting the app will automatically make them available as certain variables which can be looped through. It tries to order them in a way to include jquery or angular before their plugins.
 
 >     div Resources
       each topdir in ['public', 'client']
@@ -224,4 +224,4 @@ If this cup of tea tastes bad, you don't have to drink it. :) It's just an optio
 
 
 
-[1]: http://i.imgur.com/uN80PWN.png
+[1]: http://i.imgur.com/ua90vzQ.png
