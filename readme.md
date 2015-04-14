@@ -150,10 +150,10 @@ Serves Jade files in `client` (or `public`) directory as HTMLs
 
 `/client/components/header-nav/header-nav.jade` `=>` `GET /components/header-nav/header-nav.html`
 
-Since I found myself creating
+Found useful in creating
+[AngularJS](http://angularjs.org/)
 [directive components](http://google.com/search?q=angular+directive+components)
-in [AngularJS](http://angularjs.org/),
-I wanted to Jade using for [`templateUrl`](https://docs.angularjs.org/guide/directive#template-expanding-directive).
+using [`templateUrl`](https://docs.angularjs.org/guide/directive#template-expanding-directive).
 
 
 #### [Stylus](https://github.com/learnboost/stylus)
