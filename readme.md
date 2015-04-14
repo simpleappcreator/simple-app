@@ -40,6 +40,7 @@ Since a module in Node.js is only loaded once, you can include it in any file an
 
 Note, it's important to *first* require it in your *main* `index.js` (or `server.js`, or `app.js`) because that's the path relative to which it looks for `views` and `public` folders etc.
 
+
 ## Client-side
 
 It follows the widely accepted standard of having your views (Jade, HTML) in the `views` directory, and your images, CSS, client-javascripts in `public` or `client` directories.
@@ -50,9 +51,11 @@ Anything in your `public` or `client` directory is available as a static resourc
 
 `client/my.js` => `GET /my.js`
 
+
 ## Minification
 
 It can minify your resources! If you set an environment variable or config variable `minify`, it'll process all the CSS (or Stylus styles) and JS files and create a `public.css.min` or `client.js.min` like files respectively for public/client directories and css/js type files.
+
 
 ## Configuration
 
@@ -81,7 +84,9 @@ It tries to be foolproof by normalizing all setting names' cases to lowercase, a
 All these settings are available in `app.config`
 
 
-## Passport
+## Submodules
+
+#### Passport
 
 Passport has also been integrated and available as `app.passport`, and various strategies as `app.passport.local/google/facebook`.
 
@@ -111,13 +116,35 @@ There's also some helper middlewares
         res.render('secret');
     });
 
+#### Mongoose
+
+#### Mongoose-connect
+
+#### Stylus
+
+#### Jade-static
+
+
+
+
+
+## app.locals
+
+res.locals
+
+
+## Development/Production mode
+
+compress
+no minificationin devel
+
 
 
 ## Routes (revisited)
 
 The routes should be configured with `app.<verb>`. This is actually a wrapper for the original `app.<verb>` which would've been available if you were to configure Express manually. It's still available in `app._<verb>`. But the wrapper serves an important function.
 
-There are certain **default routes**, like 404/500 error handler\*, and those should always be configured *after* ***your*** routes.
+There are certain **default routes** and **middlewares**, like 404/500 error handler\*, and those should always be configured *after* ***your*** routes.
 
 Every time you add a route, it removes those previously added "default" routes and adds them back ***after*** *your* routes.
 
@@ -127,6 +154,20 @@ There's also a default `/` route which serves the default `index` view as seen i
 
 Same could be done to disable the default error handlers if you wish to implement your own.
 
+#### middlewarres
+
+Last page
+Sitemap generator
+catch404s
+    First, check if there's a viewfile that exists with the corresponding req.path
+
+catchErrors
+    failed-lookup
+
+
+#### routes
+
+All can be removed `app.removeDefaultMiddlewares()`
 
 
 ## Client-side (revisited)
