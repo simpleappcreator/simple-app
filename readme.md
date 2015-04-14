@@ -64,6 +64,19 @@ For all CSS/Stylus and JS files in `client` it'll create `app.css.min` and `app.
 
 For convenience of including all the resources *programatically*, all the resources are enlisted in `app.config.resources`
 
+    public: {
+        js: ['jquery.js', 'angular.js', 'angular-animate.js', 'bootstrap.js', 'moment.js', ...
+          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\jquery.js', ... ]],
+        css: ['bootstrap-theme.css', 'bootstrap.css' ...
+          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\bootstrap-theme.css', ...]],
+    },
+    client: {
+        css: ['components/data/data.css',  'app.css' ...
+          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.css', ...]],
+        js: ['components/data/data.js', 'app.js' ...
+          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.js' ...]]
+    },
+    angularApp: ['data', 'alertErr']
 
 
 ## Configuration
