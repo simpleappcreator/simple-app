@@ -99,18 +99,17 @@ which handles errors and logs messages automatically
     DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
 
-And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`.
+And since `serializeUser` is almost always exacly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`
 
-Nevertheless you can still over-ride however you want. You can even over-ride using `app.passport.de/serializeUser`.
-
+Nevertheless you can still over-ride however you want. You can even over-ride using `app.passport.de/serializeUser`
 
 ---
 
-There's also some helper middlewares
+There are also some helper middlewares
 
-`app.reqUser` which checks `if(req.user)` exists, otherwise redirects to `/login`
+`app.reqUser` which checks `if(req.user)` otherwise redirects to `/login`
 
-`app.reqAdmin` which checks `if(req.user.admin || req.user.group == 'admin')`, or throws 401 Unauthorized.
+`app.reqAdmin` which checks `if(req.user.admin || req.user.group == 'admin')` or throws 401 Unauthorized.
 
 >     app.get('/secret', app.reqAdmin, function(req, res) {
         res.render('secret');
