@@ -46,9 +46,9 @@ It follows the widely accepted standard of having your views (Jade, HTML) in the
 
 Anything in your `public` or `client` directory is available as a static resource.
 
-`public/vendor/some.css` => `GET /vendor/some.css`
+`public/vendor/some.css` `=>` `GET /vendor/some.css`
 
-`client/my.js` => `GET /my.js`
+`client/my.js` `=>` `GET /my.js`
 
 
 ## Minification
@@ -140,7 +140,9 @@ are stored in the mongo database using
 
 #### [Jade](https://github.com/jadejs/jade)
 
-Default view engine is set to Jade. As usual you can change to whatever `app.set('view engine', 'hbs')`
+Default view engine is set to Jade.
+
+As usual you can change to whatever `app.set('view engine', 'hbs')`
 
 #### [Jade-static](https://github.com/shovon/jade-static)
 
