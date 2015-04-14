@@ -238,9 +238,9 @@ For convenience of including all the resources *programatically*, all the resour
     },
     angularApp: ['data', 'alertErr']
 
-So `app.config.resources.public.js` would contain an array of *names* of all the JS files in `public` dir.
+`app.config.resources.public.js` would contain an array of *names* of all the JS files in `public` dir.
 `app.config.resources.public.js.fullpaths` would contain an array *full paths* of the same.
-And `app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string `public.min.css`
+`app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string `public.min.css`
 
 Same everything goes for `app.config.resources.client`
 
