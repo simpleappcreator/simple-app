@@ -94,7 +94,7 @@ Passport is available as `app.passport` and strategies as `app.passport.local/go
 
 There's a wrapper to serialize/deserialize
 
-    app.serializeUser(function(user, done) { done(null, user.id); });
+    app.serializeUser(function(user, done) { done(null, user.id) });
     app.deserializeUser(User.findById);
 
 which handles errors and logs messages automatically
@@ -163,17 +163,15 @@ All `.styl` files (in `client`/`public`) are injected with [nib](https://github.
 and served as `.css` files.
 
 
+## app.locals #todo
+
+res.locals #todo
 
 
-## app.locals
+## Development/Production mode #todo
 
-res.locals
-
-
-## Development/Production mode
-
-compress
-no minificationin devel
+compress #todo
+no minificationin devel #todo
 
 
 
@@ -191,20 +189,24 @@ There's also a default `/` route which serves the default `index` view as seen i
 
 Same could be done to disable the default error handlers if you wish to implement your own.
 
-#### middlewarres
+#### middlewarres #todo
 
-Last page
-Sitemap generator
-catch404s
-    First, check if there's a viewfile that exists with the corresponding req.path
+Last page #todo
 
-catchErrors
-    failed-lookup
+Sitemap generator #todo
+
+catch404s #todo
+
+    First, check if there's a viewfile that exists with the corresponding req.path #todo
+
+catchErrors #todo
+
+    failed-lookup #todo
 
 
-#### routes
+#### routes #todo
 
-All can be removed `app.removeDefaultMiddlewares()`
+All can be removed `app.removeDefaultMiddlewares()` #todo
 
 
 ## Client-side (revisited)
