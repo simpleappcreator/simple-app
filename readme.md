@@ -51,7 +51,7 @@ Anything in your `public` or `client` directory is available as a static resourc
 
 ## Minification
 
-It can minify your resources! If you set an environment variable or config variable `minify`, it'll process all the CSS (or Stylus styles) and JS files and create a `public.css.min` or `client.js.min` like files respectively for public/client directories and css/js type files.
+It can minify your resources! If you set an environment variable or config variable `minify`, it'll process all the CSS (or Stylus styles) and JS files and create a `public.css.min` or `client.js.min` like files for public/client directories and css/js type files respectively.
 
 
 ## Configuration
@@ -78,12 +78,14 @@ There are two ways to configure these settings:
         config.port = 10000;
         config.hostname="www.myapp.com"
 
-It tries to be foolproof by normalizing all setting names' cases to lowercase, and having several different aliases for same settings like app/appname/name/APP_NAME etc.
+It tries to normalize all setting names' cases to lowercase, and having several different aliases for same settings like app/appname/name/APP_NAME etc.
 
 All these settings are in `app.config`
 
 
 ## Submodules
+
+It uses and makes available various frequantly used modules that you might need in your app.
 
 #### [Passport](https://github.com/jaredhanson/passport)
 
