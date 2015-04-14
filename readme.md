@@ -60,37 +60,6 @@ For all CSS and JS files in `public` it'll create `public.css.min` and `public.j
 
 For all CSS/Stylus and JS files in `client` it'll create `client.css.min` and `client.js.min`
 
-## Resources listing
-
-For convenience of including all the resources *programatically*, all the resources are enlisted in `app.config.resources`
-
-    public: {
-        js: ['jquery.js', 'angular.js', 'angular-animate.js', 'bootstrap.js', 'moment.js', ...
-          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\jquery.js', ... ]],
-          min: 'public.min.js'
-        css: ['bootstrap-theme.css', 'bootstrap.css' ...
-          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\bootstrap-theme.css', ...]],
-          min: 'public.min.css'
-    },
-    client: {
-        css: ['components/data/data.css',  'app.css' ...
-          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.css', ...]],
-          min: 'client.min.css'
-        js: ['components/data/data.js', 'app.js' ...
-          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.js' ...]]
-          min: 'client.min.js'
-    },
-    angularApp: ['data', 'alertErr']
-
-So `app.config.resources.public.js` would contain an array of *names* of all the JS files in `public` dir.
-`app.config.resources.public.js.fullpaths` would contain an array *full paths* of the same.
-And `app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string `public.min.css`
-
-Same everything goes for `app.config.resources.client`
-
-Note that `app.config.resources.public.js` is an Array and `app.config.resources.public.js.min` is a ***property*** which won't be enumerated when the array would be looped with `forEach` etc.
-
-
 ## Configuration
 
 You can configure the app, like its name, IP address, port, external domain name that it's hosted on (for generating Sitemap), and whether the app is in development mode or production mode.
@@ -245,6 +214,49 @@ catchErrors #todo
 #### routes #todo
 
 All can be removed `app.removeDefaultMiddlewares()` #todo
+
+
+## Resources listing
+
+For convenience of including all the resources *programatically*, all the resources are enlisted in `app.config.resources`
+
+    public: {
+        js: ['jquery.js', 'angular.js', 'angular-animate.js', 'bootstrap.js', 'moment.js', ...
+          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\jquery.js', ... ]],
+          min: 'public.min.js'
+        css: ['bootstrap-theme.css', 'bootstrap.css' ...
+          fullpaths: ['C:\\TestApp\\node_modules\\simple-app\\lib\\public\\bootstrap-theme.css', ...]],
+          min: 'public.min.css'
+    },
+    client: {
+        css: ['components/data/data.css',  'app.css' ...
+          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.css', ...]],
+          min: 'client.min.css'
+        js: ['components/data/data.js', 'app.js' ...
+          fullpaths: ['C:\\TestApp\\client\\components\\data\\data.js' ...]]
+          min: 'client.min.js'
+    },
+    angularApp: ['data', 'alertErr']
+
+So `app.config.resources.public.js` would contain an array of *names* of all the JS files in `public` dir.
+`app.config.resources.public.js.fullpaths` would contain an array *full paths* of the same.
+And `app.config.resources.public.js.min` would only be present if minification was done, and would contain just the string `public.min.css`
+
+Same everything goes for `app.config.resources.client`
+
+Note that `app.config.resources.public.js` is an Array and `app.config.resources.public.js.min` is a ***property*** which won't be enumerated when the array would be looped with `forEach` etc.
+
+`app.config.resources.angularApp` contains the names of all the folders in the `client/components` dir that have a JS file.
+
+Useful for creating Angular directive components.
+
+    client/components/header-nav
+        header-nav.js
+        header-nav.jade
+
+An Angular directive header-nav is available by default.
+This is what creates the top bar in the default view.
+You just use the tagname `header-nav` in your HTML and Angular injects this directive.
 
 
 ## Client-side (revisited)
