@@ -95,7 +95,7 @@ There's a wrapper to serialize/deserialize
 
 which handles errors and logs messages automatically
 
->    Seriazed [user.user/name](54e8d8…cd1)
+>     Seriazed [user.user/name](54e8d8…cd1)
     DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
 
