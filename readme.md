@@ -40,13 +40,13 @@ Note, it's important to *first* require it in your *main* `index.js` (or `server
 
 ## Client-side
 
-It follows the widely accepted standard of having your views (Jade, HTML) in the `views` directory, and your images, CSS, client-javascripts in `public` or `client` directories.
+It follows the widely accepted standard of having your views (Jade, HTML) in the `views` directory, and your images, CSS, client-javascripts in `public` and `client` directories.
 
 Anything in your `public` or `client` directory is available as a static resource.
 
 `public/vendor/some.css` `=>` `GET /vendor/some.css`
 
-`client/my.js` `=>` `GET /my.js`
+`client/app.js` `=>` `GET /app.js`
 
 
 ## Minification
