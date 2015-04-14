@@ -16,21 +16,21 @@ It assists you without getting in your way, or your style of doing things.
 
 To configure routes, you can do
 
->     var app = require('simple-app');
+    var app = require('simple-app');
     app.get('/', function(req, res, next){
         res.render('index')
     });
 
 Since a module in Node.js is only loaded once, you can include it in any file and configure it there. For example a separate file for routes
 
->**index.js**
+**index.js**
 
->     require('simple-app');
+    require('simple-app');
     require(./routes/main);
 
->**routes/main.js**
+**routes/main.js**
 
->     var app = require('simple-app');
+    var app = require('simple-app');
     app.get('/myroute', function(req, res, next){
         res.render('myview')
     });
@@ -94,12 +94,12 @@ Passport is available as `app.passport` and strategies as `app.passport.local/go
 
 There's a wrapper to serialize/deserialize
 
->     app.serializeUser(function(user, done) { done(null, user.id); });
+    app.serializeUser(function(user, done) { done(null, user.id); });
     app.deserializeUser(User.findById);
 
 which handles errors and logs messages automatically
 
->     Seriazed [user.user/name](54e8d8…cd1)
+    Seriazed [user.user/name](54e8d8…cd1)
     DeSerializing (54e8d8…cd1)
     DeSerialized [user.user/name](54e8d8…cd1)
 
@@ -115,7 +115,7 @@ There are also some helper middlewares
 
 `app.reqAdmin` which checks `if(req.user.admin || req.user.group == 'admin')` or throws 401
 
->     app.get('/secret', app.reqAdmin, function(req, res) {
+    app.get('/secret', app.reqAdmin, function(req, res) {
         res.render('secret');
     });
 
@@ -127,7 +127,7 @@ It also tries to *guess* the URL if app is hosted on openshift or MONGOLAB etc.
 
 When defining databases in your app you should use
 
->     var app = require('simple-app');
+    var app = require('simple-app');
     var mongoose = app.mongoose;
     var User = mongoose.Schema({
         ...
@@ -214,7 +214,7 @@ And it also has a lot of commonly needed client-side CSS and javascripts librari
 
 Here's what the default header-partial that's included looks like
 
->     <!DOCTYPE html><html ng-app="app" ng-controller="app">
+    <!DOCTYPE html><html ng-app="app" ng-controller="app">
     <head>
       <div>Resources<div>public<div>CSS
         <link rel="stylesheet" href="/bootstrap-theme.css">
@@ -240,7 +240,7 @@ What's more important is all those CSS and javascript libraries and other stuff 
 
 Furthermore, if you look at the actual jade file, you'll see that it includes all those script *programatically*. So that you don't have to change the file anytime you include more client-side files, restarting the app will automatically make them available as certain variables which can be looped through. It tries to order them in a way to include jquery or angular before their plugins.
 
->     div Resources
+    div Resources
       each topdir in ['public', 'client']
         div= topdir
           div CSS
