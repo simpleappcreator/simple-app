@@ -4,7 +4,8 @@ A simple module to kick-start your Node.js app development.
 
     npm install simple-app
 
-![screenshot][1]
+![screenshot](http://i.imgur.com/ua90vzQ.png)
+
 
 It has all the Express, Mongoose, Socket.io, Jade, Passport, and all that stuff pre-configured for you.
 
@@ -63,30 +64,33 @@ There are two ways to configure these settings:
 
 1. through environment variables.
 
-        export app="AppName"
-        export IP="127.0.0.1"
-        export PORT=3000
-        export NODE_ENV="development"
+        # defaults
+        export app="SimpleApp"
+        export IP="0.0.0.0"
+        export PORT=80
         export NODE_ENV="production"
-        #default is development
-        export hostname="www.myapp.com"
+        export NODE_ENV="development"
+        # default is development
 
 2. through a `config.js` file
 
         var config = module.exports;
         config.name = 'TestApp';
+        config.ip = "127.0.0.1"
         config.port = 10000;
+        config.hostname="www.myapp.com"
 
 It tries to be foolproof by normalizing all setting names' cases to lowercase, and having several different aliases for same settings like app/appname/name/APP_NAME etc.
 
-All these settings are available in `app.config`
+All these settings are in `app.config`
 
 
 ## Submodules
 
 #### Passport
 
-Passport is available as `app.passport` and strategies as `app.passport.local/google/facebook`
+[Passport](https://github.com/jaredhanson/passport)
+is available as `app.passport` and strategies as `app.passport.local/google/facebook`
 
 There's a wrapper to serialize/deserialize
 
@@ -109,7 +113,7 @@ There are also some helper middlewares
 
 `app.reqUser` which checks `if(req.user)` otherwise redirects to `/login`
 
-`app.reqAdmin` which checks `if(req.user.admin || req.user.group == 'admin')` or throws 401 Unauthorized.
+`app.reqAdmin` which checks `if(req.user.admin || req.user.group == 'admin')` or throws 401
 
 >     app.get('/secret', app.reqAdmin, function(req, res) {
         res.render('secret');
@@ -117,7 +121,23 @@ There are also some helper middlewares
 
 #### Mongoose
 
-#### Mongoose-connect
+[Mongoose](https://github.com/Automattic/mongoose)
+is available as `app.mongoose` which tries to connect to `mongodb://locahost/appname` by default, or if you configure a setting `mongodburl`
+
+It also tries to *guess* the URL if app is hosted on openshift or MONGOLAB etc.
+
+When defining databases in your app you should use
+
+>     var app = require('simple-app');
+    var mongoose = app.mongoose;
+    var User = mongoose.Schema({
+        ...
+
+#### Mongo Session Store
+
+[Session](https://github.com/expressjs/session)s
+are stored in the mongo database using
+[connect-mongo](https://github.com/kcbanner/connect-mongo).
 
 #### Stylus
 
@@ -222,5 +242,3 @@ If this cup of tea tastes bad, you don't have to drink it. :) It's just an optio
 
 
 
-
-[1]: http://i.imgur.com/ua90vzQ.png
