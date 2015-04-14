@@ -88,7 +88,7 @@ All these settings are available in `app.config`
 
 Passport is available as `app.passport`, and strategies as `app.passport.local/google/facebook`
 
-There's a wrapper for serialize/deserialize
+There's a wrapper to serialize/deserialize
 
 >     app.serializeUser(function(user, done) {
         done(null, user.id);
