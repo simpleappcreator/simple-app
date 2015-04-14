@@ -86,7 +86,7 @@ All these settings are available in `app.config`
 
 #### Passport
 
-Passport is available as `app.passport`, and various strategies as `app.passport.local/google/facebook`.
+Passport is available as `app.passport`, and strategies as `app.passport.local/google/facebook`
 
 There's a wrapper for serialize/deserialize
 
