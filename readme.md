@@ -100,18 +100,18 @@ Passport is available as `app.passport` and strategies as `app.passport.local/go
 
 There's a wrapper to serialize/deserialize
 
-    app.serializeUser(function(user, done) { done(null, user.id) });
-    app.deserializeUser(User.findById);
+    app.serializeUser(function(user, done){ done(null, user.id) });
+    app.deserializeUser(function(id, done){ User.findById(id, done) });
 
-which handles errors and logs messages automatically
+which handles errors and logs messages
 
-    Seriazed [user.user/name](54e8d8…cd1)
-    DeSerializing (54e8d8…cd1)
+    Serializing [user.user/name](54e8d8…cd1)
+    POST [302] /login
     DeSerialized [user.user/name](54e8d8…cd1)
 
-And since `serializeUser` is almost always exactly the same as above, it's already pre-configured like that, so you just have to `app.deserializeUser(User.findById)`
+And since `serializeUser` is the same in most cases, and doesn't require `User`, it's already pre-configured like that.
 
-Nevertheless you can still over-ride however you want, using either the wrappers or directly using `app.passport.de/serializeUser`
+Of course, you can still over-ride however you want, using either the wrappers or directly using `app.passport.de/serializeUser`
 
 ---
 
