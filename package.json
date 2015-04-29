@@ -1,19 +1,12 @@
 {
   "name": "simple-app",
-  "version": "0.0.25",
+  "version": "0.0.29",
   "description": "simple app",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/simpleappcreator/simple-app.git"
   },
-  "keywords": [
-    "node.js"
-  ],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/simpleappcreator/simple-app/issues"
@@ -59,7 +52,7 @@
     "socket.io": "^1.1.0",
     "socket.io-events": "^0.4.2",
     "stylus": "^0.51.0",
-    "uglify-js": "^2.4.16",
+    "uglify-js2": "^2.1.11",
     "utils-merge": "^1.0.0",
     "wrench": "^1.5.8"
   },
