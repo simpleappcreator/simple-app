@@ -1,6 +1,6 @@
 {
   "name": "simple-app",
-  "version": "2.0.0",
+  "version": "0.0.42",
   "description": "simple app",
   "main": "index.js",
   "repository": {
@@ -13,6 +13,10 @@
   },
   "homepage": "https://github.com/simpleappcreator/simple-app",
   "dependencies": {
+    "unclog": "^2.5",
+    "to-short-string": "^0.0",
+    "stringify-error": "^0.0",
+    "deep-index-of": "^0.0",
     "async": "^0.9",
     "bluebird": "^2.4",
     "body-parser": "^1.9",
@@ -51,13 +55,11 @@
     "stylus": "^0.51",
     "uglify-js": "^2.4.20",
     "utils-merge": "^1.0",
-    "wrench": "^1.5",
-    "unclog": "^3.0.0",
-    "smallilies": "^1.0.0"
+    "wrench": "^1.5"
   },
   "gitHead": "abe96634324ff49c67199d20c8bfa050169da7ec",
-  "_id": "simple-app@0.0.14",
-  "_shasum": "a61270c1fde1057dba1b960de7fb775d96e2c99b",
+  "_id": "simple-app@0.0.42",
+  "_shasum": "8df5a17bdf2835803f5a103af88a7a63c2bed2e5",
   "_from": "simple-app@*",
   "_npmVersion": "1.4.28",
   "_npmUser": {
@@ -76,5 +78,6 @@
   },
   "directories": {},
   "_resolved": "https://registry.npmjs.org/simple-app/-/simple-app-0.0.14.tgz",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "scripts": {}
 }
