@@ -1,6 +1,6 @@
 {
   "name": "simple-app",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "simple app",
   "main": "index.js",
   "repository": {
@@ -71,5 +71,6 @@
   },
   "directories": {},
   "_resolved": "https://registry.npmjs.org/simple-app/-/simple-app-0.0.14.tgz",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "scripts": {}
 }
