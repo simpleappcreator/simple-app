@@ -1,6 +1,6 @@
 {
   "name": "simple-app",
-  "version": "2.1.1-alpha",
+  "version": "2.1.1",
   "description": "simple app",
   "main": "index.js",
   "repository": {
