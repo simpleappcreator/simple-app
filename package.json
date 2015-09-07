@@ -1,6 +1,6 @@
 {
     "name"                   : "simple-app",
-    "version"                : "2.2.0-a",
+    "version"                : "2.2.1",
     "dependencies"           : {
     "bcrypt"                 : "^0.8",
     "body-parser"            : "^1.9",
@@ -38,7 +38,7 @@
     "uglify-js"              : "^2.4",
     "utils-merge"            : "^1.0",
     "wrench"                 : "^1.5",
-    "unclog"                 : "^3.0",
-    "smallilies"             : "^1.0"
+    "unclog"                 : "^3.1",
+    "smallilies"             : "^1.2"
     }
 }
