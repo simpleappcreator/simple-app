@@ -1,6 +1,6 @@
 {
     "name"                   : "simple-app",
-    "version"                : "2.2.3",
+    "version"                : "2.2.4",
     "dependencies"           : {
     "bcrypt"                 : "^0.8",
     "body-parser"            : "^1.9",
