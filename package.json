@@ -39,6 +39,6 @@
 "utils-merge"            : "^1.0",
 "wrench"                 : "^1.5",
 "unclog"                 : "^3.4",
-"smallilies"             : "^1.3"
+"smallilies"             : "^1.3.2"
 }
 }
