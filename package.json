@@ -1,6 +1,6 @@
 {
 "name"                   : "simple-app",
-"version"                : "3.12.4",
+"version"                : "3.12.6",
 "dependencies"           : {
 "bcrypt"                 : "^0.8",
 "body-parser"            : "^1.9",
@@ -39,6 +39,6 @@
 "utils-merge"            : "^1.0",
 "wrench"                 : "^1.5",
 "unclog"                 : "^3.4.6",
-"smallilies"             : "^1.4.3"
+"smallilies"             : "^1.4.4"
 }
 }
