@@ -1,6 +1,14 @@
 {
 "name"                   : "simple-app",
-"version"                : "3.14.0",
+"version"                : "3.15.0",
+"engines": {
+"node"                   : ">= 5.0.0",
+"npm"                    : ">= 3.0.0"
+},
+"scripts": {
+"start"                  : "node --harmony --harmony_proxies --harmony_sloppy_function --harmony_sloppy_let --harmony_reflect --harmony_destructuring --harmony_default_parameters index.js"
+},
+"main"                   : "--harmony --harmony_proxies --harmony_sloppy_function --harmony_sloppy_let --harmony_reflect --harmony_destructuring --harmony_default_parameters index.js",
 "dependencies"           : {
 "bcrypt"                 : "^0.8",
 "body-parser"            : "^1.9",
