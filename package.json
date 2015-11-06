@@ -1,12 +1,12 @@
 {
 "name"                   : "simple-app",
-"version"                : "4.0.0",
+"version"                : "4.0.1",
 "dependencies"           : {
 "babel-core"             : "latest",
 "babel-preset-es2015"    : "latest",
 "babel-preset-stage-0"   : "latest",
 "smallilies"             : "^2.0.0",
-"unclog"                 : "^4.0.0",
+"unclog"                 : "^4.0.2",
 "bcrypt"                 : "^0.8",
 "body-parser"            : "^1.9",
 "browser-sync"           : "^2.8",
