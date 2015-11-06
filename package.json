@@ -1,15 +1,12 @@
 {
 "name"                   : "simple-app",
-"version"                : "3.15.0",
-"engines": {
-"node"                   : ">= 5.0.0",
-"npm"                    : ">= 3.0.0"
-},
-"scripts": {
-"start"                  : "node --harmony --harmony_proxies --harmony_sloppy_function --harmony_sloppy_let --harmony_reflect --harmony_destructuring --harmony_default_parameters index.js"
-},
-"main"                   : "--harmony --harmony_proxies --harmony_sloppy_function --harmony_sloppy_let --harmony_reflect --harmony_destructuring --harmony_default_parameters index.js",
+"version"                : "4.0.0",
 "dependencies"           : {
+"babel-core"             : "latest",
+"babel-preset-es2015"    : "latest",
+"babel-preset-stage-0"   : "latest",
+"smallilies"             : "^2.0.0",
+"unclog"                 : "^4.0.0",
 "bcrypt"                 : "^0.8",
 "body-parser"            : "^1.9",
 "browser-sync"           : "^2.8",
@@ -45,8 +42,6 @@
 "ua-parser"              : "^0.3",
 "uglify-js"              : "^2.4",
 "utils-merge"            : "^1.0",
-"wrench"                 : "^1.5",
-"unclog"                 : "^3.4.6",
-"smallilies"             : "^1.4.4"
+"wrench"                 : "^1.5"
 }
 }
