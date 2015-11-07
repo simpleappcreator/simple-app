@@ -1,0 +1,5 @@
+a.logo(href='/' tabindex=999) #[img(src='/public/main/img/logo.png' alt=Name)] #[span= Name]
+span.user(ng-if='user && !user.anon' tabindex=990) Hello, {{user.name || user.username}}
+a.user(href='/profile' ng-if='user && !user.anon' tabindex=990) Profile
+a.login(href='/login' ng-hide='user && !user.anon' tabindex=990) Login
+a.logout(href='/logout' ng-if='user && !user.anon' tabindex=990) Logout

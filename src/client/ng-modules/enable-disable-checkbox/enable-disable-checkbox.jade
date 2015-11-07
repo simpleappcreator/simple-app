@@ -1,0 +1,8 @@
+span.pre
+input(ng-model='input.enabled' type='checkbox' ng-attr-name='{{attrs.name}}-enabled' ng-attr-id='{{attrs.id}}-enabled')
+label(ng-attr-for='{{attrs.id}}-enabled') {{attrs.enableLabel||'Enable'}}
+span.mid
+input(ng-model='input.disabled' type='checkbox' ng-attr-name='{{attrs.name}}-disabled' ng-attr-id='{{attrs.id}}-disabled')
+label(ng-attr-for='{{attrs.id}}-disabled') {{attrs.disableLabel||'Disable'}}
+span.post
+ng-transclude

@@ -1,0 +1,36 @@
+header(ng-click='expandToggle()') #[a(ng-href='{{getUrl()}}') {{bc.getName(data)}}]
+form(ng-if='expanded' method='post' ng-submit='add?add():update()')
+    if(bc.ngTemplateSingleForm)
+        .transcludedForm(ng-include='"#{ngTemplateSingleForm}"')
+    else
+        each schema, key in bc.schema
+            label= _.startCase(key)
+                case true
+                    when bc.disabledFields && !!~bc.disabledFields.indexOf(key)
+                        .disabled-field
+                    when schema.type && 'boolean'==schema.type.toLowerCase()
+                        input(type='checkbox' ng-model='data.#{key}' required tabindex=1)
+                    when schema.type && 'number'==schema.type.toLowerCase()
+                        input(type='number' ng-model='data.#{key}' required tabindex=1)
+                    when schema.type && 'date'==schema.type.toLowerCase()
+                        time(ng-attr-datetime='{{data.#{key}}}') ({{data.#{key} | fromNow}})
+                        input(type='date' ng-model='data.#{key}' required tabindex=1)
+                    when schema.type && 'objectid'==schema.type.toLowerCase()
+                        - var ref = schema.ref;
+                        - var refDocs = refs[ref];
+                        case true
+                            when _.size(refDocs)<=200
+                                select(ng-model='data.#{key}' required tabindex=1)
+                                    option(value='')
+                                    each doc in refDocs
+                                        option(value=doc._id)= bc.getName(doc, key)
+                            when _.size(refDocs)>200
+                                input(list=key+'-list' ng-value='bc.getName(refs.#{ref}[data.#{key}], "#{key}")' required tabindex=1)
+                    when schema instanceof Array
+                        div array not supported yet
+                    default
+                        input(ng-model='data.#{key}' required tabindex=1)
+            br
+    button(ng-if='!add&&big||bc.manualUpdate' tabindex=1) Update #[kbd ↵]
+    button.add(ng-if='add'  tabindex=1) Add {{_.startCase(bc.Name)}}
+    button.remove(ng-if='!add' type='button' ng-click='remove()' tabindex=1) Remove

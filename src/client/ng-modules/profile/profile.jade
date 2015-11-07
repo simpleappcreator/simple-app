@@ -1,0 +1,21 @@
+form(ng-submit='submit()')
+    label Name
+    input(name='name' ng-model='user.name' tabindex=1)
+
+    label Username
+    input(name='username' ng-model='user.username' tabindex=1)
+
+    label Email
+    input(name='email' ng-model='user.email' tabindex=1)
+
+    label Password (New)
+    input(type='password' name='password' tabindex=1)
+
+    .field(ng-repeat='(key, value) in user' ng-if='ignore.indexOf(key)<0')
+        .checkbox(ng-if='typeof(value)=="boolean"')
+            input(type='checkbox' ng-model='user[key]' ng-attr-name='{{key}}' ng-attr-id='{{key}}' tabindex=1)
+        label(ng-attr-name='{{key}}') {{_.startCase(key)}}
+        .text(ng-if='typeof(value)!="boolean"')
+            input(type='text'     ng-model='user[key]' ng-attr-name='{{key}}' ng-attr-id='{{key}}' tabindex=1)
+
+    button Save

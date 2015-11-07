@@ -1,0 +1,58 @@
+label[for]
+    cursor pointer
+
+form
+    margin .5em
+    white-space nowrap
+
+    /* Bold Labels */
+    label
+        white-space normal
+        font-weight: bold
+    input[type=checkbox] + label
+        font-weight: normal
+
+    /* Block Inputs */
+    label
+        display block
+    input:not([type=checkbox]),
+    select
+        display block
+        max-width 100%
+        width 100%
+        min-width 13em
+        // height 2em
+
+    /* Padded inputs*/
+    input
+        padding .1em
+        padding-left .2em
+
+    /* Gray out disabled ones */
+    *:disabled
+    input:disabled
+    select:disabled
+        background rgb(235,235,228)
+    input[type=checkbox]:disabled + label
+    label:has(+ input:disabled)
+        color gray
+    input[readonly]
+        color gray
+        background rgb(235,235,235)
+
+    /* Field sets */
+    fieldset
+        margin-top 1em
+        padding-top 1em
+        border-top 1px dotted rgb(200,200,200)
+
+    /* Links to the right */
+    a
+        float right
+        font-size .9em
+
+
+    /* Last ones slightly downwards */
+    // button:last-of-type,
+    // a:last-of-type
+    //     margin 1em auto .5em auto

@@ -1,0 +1,13 @@
+/* All ng-show & ng-repeat have fade effects */
+
+for x in repeat show
+    \[ng-{x}\]
+        transition: all linear .3s
+    \[ng-{x}\].ng-enter.ng-enter-active
+    \[ng-{x}\].ng-leave
+        opacity: 1
+    \[ng-{x}\].ng-hide
+    \[ng-{x}\].ng-enter
+    \[ng-{x}\].ng-leave.ng-leave-active
+        transition: all linear .2s
+        opacity: 0

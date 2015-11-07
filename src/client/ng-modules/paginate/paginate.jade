@@ -1,0 +1,6 @@
+.paginate(ng-show='data.length')
+    pagination
+    input.filter(type='search' placeholder='filter' ng-model='searchText' ng-model-options='{debounce: 500}')
+    button.btn.btn-default.btn-xs.glyphicon.glyphicon-remove(type='button' ng-if='searchText' ng-click='clearSearchText()')
+//- added via controller:
+//- directive(ng-repeat='data in limitedData = (filteredData=(data|filter:searchText|filter:filterFn()) | startFrom:startFrom|limitTo:limitTo ) track by data._id')

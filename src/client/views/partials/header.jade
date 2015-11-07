@@ -1,0 +1,84 @@
+doctype html
+<html ng-app='app' ng-controller='root'>
+head
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1.0', name='viewport')
+
+    title= title || (path.length ? (path + '«' + appName) : appName)
+
+    meta(name='description' value=description)
+    meta(name='keywords' value=keywords)
+    meta(name='author' value=author)
+
+    //- base(href='/')
+
+    //- link(rel='shortcut icon' href='/favicon.ico?v=2')
+
+    script appName = '#{appName}';
+    script dev = !{JSON.stringify(dev || false)};
+    script path = '#{path}';
+
+    //- if(!err || status!=404 && status!=500)
+    if(!err || isNaN(status))
+        // Data
+        script user = !{JSON.stringify(user?user.lean?user.lean():user:{anon:true})};
+        if(err)
+            script err = "#{err}";
+        if(bc)
+            // basic-crud
+            script bc = !{JSON.stringify(bc)};
+        if(data)
+            // Data
+            script data = !{JSON.stringify(data)};
+        if(meta)
+            // Meta
+            script meta = !{JSON.stringify(meta)};
+        if(refs)
+            // Refs
+            script refs = !{JSON.stringify(refs)};
+        if(resources.ngModules.getModules)
+            script ngModules = !{JSON.stringify(resources.ngModules.getModules())};
+        // Resources
+        if(!dev)
+            link(rel='stylesheet' href='/.min.css')
+            script(src='/.min.js')
+        else
+            // CSS
+            // Vendor
+            each css in resources.public.vendor.css
+                link(rel='stylesheet' href=css.split('/client').pop())
+            // Main
+            each css in resources.public.main.css
+                link(rel='stylesheet' href=css.split('/client').pop().replace('.styl','.css'))
+            // ng-modules
+            each mod in resources.ngModules
+                if(mod.styl)
+                    link(rel='stylesheet' href=mod.styl.split('/client').pop().replace('.styl','.css'))
+            // JS
+            // Vendor
+            each js in resources.public.vendor.js
+                script(src=js.split('/client').pop())
+            // Main
+            each js in resources.public.main.js
+                script(src=js.split('/client').pop())
+            // ng-modules
+            each mod in resources.ngModules
+                if(mod.js)
+                    script(src=mod.js.split('/client').pop())
+
+        // ng-templates
+        //- script(src='/ng-templates.js')
+        if(getNgTemplates)
+            != getNgTemplates()
+
+        if (dev && config.browsersync)
+            script(src='http://'+req.hostname+':3000/browser-sync/browser-sync-client.js')
+
+        //[if IE]<script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'></script><![endif]
+
+
+//
+<body>
+masthead
+// Main Body Content:
+<div id='body' class='#{path}' ng-controller='#{path}'>

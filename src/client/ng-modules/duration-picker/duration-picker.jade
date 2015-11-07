@@ -1,0 +1,8 @@
+input(ng-attr-name='{{name}}' type='hidden' ng-value='output[name]')
+input(type='number' ng-model='input.value' ng-show='!forever' ng-attr-placeholder='{{placeholder}}' required ng-attr-tabindex='{{tabindex||1}}' ng-disabled='disabled')
+select(ng-model='input.unit' ng-attr-tabindex='{{tabindex||1}}' ng-disabled='disabled')
+    option(ng-if='max>=0' value='seconds') second{{s}}
+    option(ng-if='max>=60' value='minutes') minute{{s}}
+    option(ng-if='max>=3600' value='hours') hour{{s}}
+    option(ng-if='max>=86400' value='days') day{{s}}
+    option(ng-if='max>=604800' value='forever') forever

@@ -1,13 +1,7 @@
 {
 "name"                   : "simple-app",
-"version"                : "4.0.2",
+"version"                : "5.0.0",
 "dependencies"           : {
-"babel-core"             : "latest",
-"babel-preset-es2015"    : "latest",
-"babel-preset-stage-0"   : "latest",
-"babel-preset-stage-1"   : "latest",
-"babel-preset-stage-2"   : "latest",
-"babel-preset-stage-3"   : "latest",
 "smallilies"             : "^2.0.1",
 "unclog"                 : "^4.0.4",
 "bcrypt"                 : "^0.8",
@@ -46,5 +40,15 @@
 "uglify-js"              : "^2.4",
 "utils-merge"            : "^1.0",
 "wrench"                 : "^1.5"
+},
+"devDependencies"      : {
+"gulp"                 : "latest",
+"del"                  : "latest",
+"gulp-babel"           : "latest",
+"babel-preset-es2015"  : "latest",
+"babel-preset-stage-0" : "latest",
+"babel-preset-stage-1" : "latest",
+"babel-preset-stage-2" : "latest",
+"babel-preset-stage-3" : "latest"
 }
 }
