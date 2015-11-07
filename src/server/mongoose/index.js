@@ -120,6 +120,7 @@ mongoose.model = function mongoose_model_patch(collectionName, schema) {
         schema.plugin(userutils);
 
     var model = mongoose_model.apply(mongoose, arguments);
+    console.debug(collectionName, model.findOrCreate);
 
     Promise.promisifyAll(model);
     Promise.promisifyAll(model.prototype);
