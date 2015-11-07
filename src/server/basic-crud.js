@@ -1,5 +1,3 @@
-'use strict';
-
 // Defaults
 var bc = locals.bc = {
     'ngTemplateMultipleFull': null,
@@ -182,7 +180,7 @@ BasicCrud.prototype.addRoute_PRErefs = function(path) {
             return refs.concat([ref]);
         }, []).map(ref => {
             // populate each unique ref:
-            console.log(bc.slug, ref);
+            // console.log(bc.slug, ref);
             var Model = (req.mongoose || mongoose).model(ref);
             return Model.find({}).lean().limit(limit).execAsync()
                 .then(mongoose.desensitize)
