@@ -16,13 +16,4 @@ gulp.task('babel', done =>
     }))
     .pipe(gulp.dest('lib')));
 
-
-
-
-
-// gulp.task('default', 'clean', 'babel', 'rest');
-// gulp.task('default', gulp.series('clean', 'babel', 'rest'));
-// gulp.task('default', gulp.series('clean', 'babel'));
 gulp.task('default', gulp.series('clean', 'copy', 'babel'));
-// gulp.task('default', gulp.series('clean'));
-// gulp.task('default', ['rest']);

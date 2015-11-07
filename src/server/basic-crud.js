@@ -181,7 +181,7 @@ BasicCrud.prototype.addRoute_PRErefs = function(path) {
         }, []).map(ref => {
             // populate each unique ref:
             // console.log(bc.slug, ref);
-            var Model = (req.mongoose || mongoose).model(ref);
+            var Model = (res.mongoose || mongoose).model(ref);
             return Model.find({}).lean().limit(limit).execAsync()
                 .then(mongoose.desensitize)
                 .then(mongoose.objectify)
@@ -198,7 +198,7 @@ BasicCrud.prototype.addRoute_GETmultiple = function(path) {
 
     function route(req, res, next) {
         var locals = res.locals;
-        var Model = req.mongoose && req.mongoose.model(bc.collectionName) || bc.db
+        var Model = res.mongoose && res.mongoose.model(bc.collectionName) || bc.db
         Model.find({}).lean().limit(bc.limit || Infinity).sort(bc.sortOrder || '').execAsync().then(mongoose.desensitize).then(function(docs) {
             locals.title = bc.Names + ' | ' + config.Name;
             locals.data = locals[bc.names] = docs;
@@ -215,7 +215,7 @@ BasicCrud.prototype.addRoute_GETsingle = function(path) {
 
     function route(req, res, next) {
         var locals = res.locals;
-        (req.mongoose && req.mongoose.model(bc.collectionName) || bc.db)
+        (res.mongoose && res.mongoose.model(bc.collectionName) || bc.db)
         .findByIdAsync(req.params.id).then(function(doc) {
             if (!doc) throw new Error('Doesn\'t exist');
             locals.data = doc;
@@ -259,7 +259,7 @@ BasicCrud.prototype.addRoute_POSTupdate = function(path) {
         delete data.__v;
         delete data.password;
         delete data.hash;
-        var Model = req.mongoose && req.mongoose.model(bc.collectionName) || bc.db;
+        var Model = res.mongoose && res.mongoose.model(bc.collectionName) || bc.db;
         Model.findByIdAndUpdate(id, data).execAsync().then(function(doc) {
             if (password && password.length && doc.savePassword) {
                 doc.savePassword(password);
@@ -285,7 +285,7 @@ BasicCrud.prototype.addRoute_POSTremove = function(path) {
         var data = req.body;
         var id = data.id || data._id;
         console.verbose('%s Remove request received:\n', bc.Name, data);
-        var Model = req.mongoose && req.mongoose.model(bc.collectionName) || bc.db;
+        var Model = res.mongoose && res.mongoose.model(bc.collectionName) || bc.db;
         Model.findById(id).removeAsync().then(function() {
             console.verbose('%s Remove request fulfilled\n', bc.Name);
             if (req.json) res.json('removed');
@@ -305,7 +305,7 @@ BasicCrud.prototype.addRoute_POSTadd = function(path) {
     function route(req, res, next) {
         var data = req.body;
         console.verbose('%s Add request received:\n', bc.Name, data);
-        var Model = req.mongoose && req.mongoose.model(bc.collectionName) || bc.db;
+        var Model = res.mongoose && res.mongoose.model(bc.collectionName) || bc.db;
         new Model(data).saveAsync().spread(function(doc) {
             console.verbose('%s Add request fulfilled\n', bc.Name, doc);
             if (req.json) res.json(doc);
