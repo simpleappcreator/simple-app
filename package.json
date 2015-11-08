@@ -1,6 +1,6 @@
 {
 "name"                   : "simple-app",
-"version"                : "5.0.6",
+"version"                : "5.0.7",
 "dependencies"           : {
 "smallilies"             : "^3.0.1",
 "unclog"                 : "^5.0.1",

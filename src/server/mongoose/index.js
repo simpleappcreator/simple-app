@@ -104,7 +104,7 @@ mongoose.Schema.Types.NumberRequiredDefault0 = {
 };
 
 mongoose._model = mongoose.model;
-mongoose.model = function mongoose_model_patch(collectionName, schema) {
+mongoose.model = function mongoose_model_patch(collectionName, schema, ...restArgs) {
     if (!collectionName) throw new Error('mongoose.model needs a collectionName');
     collectionName = collectionName.toLowerCase();
     if (!schema) return mongoose._model.apply(mongoose, arguments);
@@ -119,7 +119,7 @@ mongoose.model = function mongoose_model_patch(collectionName, schema) {
     if (collectionName.match(/user/))
         schema.plugin(userutils);
 
-    var model = mongoose._model(collectionName, schema);
+    var model = mongoose._model(collectionName, schema, ...restArgs);
 
     Promise.promisifyAll(model);
     Promise.promisifyAll(model.prototype);
