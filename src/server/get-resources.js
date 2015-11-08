@@ -1,4 +1,3 @@
-// 'use strict';
 var Wrench = require('wrench');
 var UglifyJS = require('uglify-js');
 var Stylus = require('stylus');
@@ -161,7 +160,6 @@ resources.getConsolidatedNgTemplatesJadeFn = function() {
 }
 
 resources.getConsolidatedNgTemplates = function() {
-    'use strict';
     return jades().map(o => {
         o.fn = Jade.compile(o.str, locals);
         return o;

@@ -15,7 +15,7 @@ gulp.task('babel', done =>
     .pipe(babel({
         presets: ['es2015', 'stage-0']
     }))
-    .pipe(replace(/['"]use strict['"];([\n\r]+)?/g, ''))
+    .pipe(replace(/(\/\/ )?["']use strict['"];?([\n\r]+)?/g, ''))
     .pipe(gulp.dest('lib')));
 
 gulp.task('default', gulp.series('clean', 'copy', 'babel'));
