@@ -83,6 +83,7 @@ function sorter(a, b) {
     var order = 0;
     order = Path.basename(a) > Path.basename(b) ? 1 : -1;
     [
+        'polyfill',
         'jquery.js',
         'angular.js',
         'create-ng-directive.js',
