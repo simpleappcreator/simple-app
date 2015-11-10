@@ -34,9 +34,10 @@ passport.deserializeUser = function deserializeUser_unshiftPatch(findById, req, 
                 // console.verbose('DeSerialized', tostr(user));
                 return done(null, user);
             }
-            AnonUser.findById(id, function(er_, anonuser) {
+            AnonUser.findById(id, async function(er_, anonuser) {
                 if (anonuser) return done(null, anonuser);
-                new AnonUser().saveAsync().spread(anonuser => done(null, anonuser));
+                anonuser = await new AnonUser().saveAsync();
+                return done(null, anonuser);
             });
         });
     });
@@ -87,6 +88,7 @@ passport.useProviderStrategy = function usePassportProviderStrategy(provider, Us
 }
 
 app.setUser = function AppSetUser(User) {
+    // console.debug('Setting User', User);
     if (!User) User = AnonUser;
     if (!User.findOrCreate) return console.error('User.findOrCreate method needed');
     app.User = User;
