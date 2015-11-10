@@ -47,6 +47,8 @@
 "del"                  : "latest",
 "gulp-babel"           : "latest",
 "gulp-replace"         : "latest",
+"gulp-changed-in-place": "latest",
+"gulp-util"            : "latest",
 "babel-preset-es2015"  : "latest",
 "babel-preset-stage-0" : "latest",
 "babel-preset-stage-1" : "latest",
