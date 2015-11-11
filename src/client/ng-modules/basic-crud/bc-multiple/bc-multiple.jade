@@ -1,9 +1,0 @@
-header {{bc.startCase}}s ({{data.length}})
-bc-single.add
-paginate(directive='bc-single')
-
-each schema, key in bc.schema
-    if(schema.docs)
-        datalist(id=key+'-list' )
-            each doc in schema.docs
-                option(value=bc.getName(doc, key))
