@@ -3,6 +3,8 @@ const babel = require('gulp-babel');
 const replace = require('gulp-replace');
 const changed = require('gulp-changed-in-place');
 
+process.title = 'Gulp: Simple-app';
+
 gulp.task('babel', done =>
     gulp.src('**/*.es6')
     .pipe(changed({firstPass: true}))
