@@ -1,0 +1,16 @@
+time[title]:hover:after
+    content " [" attr(title) "]"
+label[title]:after
+a[title]:after
+    display inline-block
+    padding-left .2em
+    margin-bottom -.08em
+    content attr(title)
+    max-width 0
+    overflow hidden
+    transition all 333ms
+    white-space nowrap
+label:hover:after
+a:hover:after
+    transition all 0
+    max-width 100%

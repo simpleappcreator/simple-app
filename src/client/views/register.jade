@@ -1,0 +1,17 @@
+form.login(action='/register' method='post')
+    header Register
+
+    label(for='email') Email or Username *
+    input(name='email' id='email' value='#{user&&user.email||""}' required tabindex=1)
+
+    label(for='password') Password *
+    input(name='password' id='password' type='password' required tabindex=1
+        onchange='this.setCustomValidity(this.value.length<6? "Must be at least 6 characters" :"")')
+    label(for='confirmp') Confirm Password *
+    input(name='confirmp' id='confirmp' type='password' required tabindex=1
+        onchange='this.setCustomValidity(this.value!=document.getElementById("password").value? "Must match password" :"")')
+
+    label(for='number') Number (for SMS updates (optional))
+    input(name='number' id='number' value='#{user&&user.number||""}' placeholder='+(country dode) (area code) (number)' tabindex=1)
+
+    input(type='submit' value='Register' tabindex=1)

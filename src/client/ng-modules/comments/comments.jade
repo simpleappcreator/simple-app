@@ -1,0 +1,7 @@
+.comment(ng-repeat='comment in comments track by comment._id')
+    blockquote {{comment.text}}
+    cite {{users[comment.author].name}}
+    time(ng-attr-datetime='{{comment.timestamp}}') ({{moment(comment.timestamp).format('MMM DD')}})
+    button.remove.btn.btn-default.btn-xs.glyphicon.glyphicon-remove(ng-click='removeComment(comment)' ng-if='comment.author==user._id' type='button')
+input(ng-model='comment')
+button.add(ng-click='addComment(comment)' type='button') Add comment
