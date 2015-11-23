@@ -1,10 +1,10 @@
-
 // module.exports = "simple-app";
 
-var app = angular.module('app', [
-    'ngSanitize', 'ngAnimate', 'ngTouch', 'ngStorage',
+var app = module.exports = angular.module('app', [
+    'ngSanitize', 'ngAnimate', 'ngTouch',
+    'ngStorage',
     'ui.utils',
-    // 'ngTemplates',
+    'ngTemplates',
     // 'alertErr', 'durationPicker', 'startFrom', 'fromNow',
 ].concat(ngModules));
 //config(function($locationProvider){$locationProvider.html5Mode(true).hashPrefix('!')}).
@@ -23,13 +23,41 @@ app.controller('root', function(
 
     window.$scope = $rootScope;
     $rootScope.$ = $;
-    try{ $rootScope.user = user }catch(err){ $rootScope.user = window.user }
-    try{ $rootScope.err  = err  }catch(err){ $rootScope.err  = window.err  }
-    try{ $rootScope.bc   = bc   }catch(err){ $rootScope.bc   = window.bc   }
-    try{ $rootScope.data = data }catch(err){ $rootScope.data = window.data }
-    try{ $rootScope.meta = meta }catch(err){ $rootScope.meta = window.meta }
-    try{ $rootScope.refs = refs }catch(err){ $rootScope.refs = window.refs }
-    try{ $rootScope.user = user }catch(err){ $rootScope.user = window.user }
+    try {
+        $rootScope.user = user
+    } catch (err) {
+        $rootScope.user = window.user
+    }
+    try {
+        $rootScope.err = err
+    } catch (err) {
+        $rootScope.err = window.err
+    }
+    try {
+        $rootScope.bc = bc
+    } catch (err) {
+        $rootScope.bc = window.bc
+    }
+    try {
+        $rootScope.data = data
+    } catch (err) {
+        $rootScope.data = window.data
+    }
+    try {
+        $rootScope.meta = meta
+    } catch (err) {
+        $rootScope.meta = window.meta
+    }
+    try {
+        $rootScope.refs = refs
+    } catch (err) {
+        $rootScope.refs = window.refs
+    }
+    try {
+        $rootScope.user = user
+    } catch (err) {
+        $rootScope.user = window.user
+    }
 
     $rootScope.$window = $rootScope.window = $window;
     $rootScope.addEventListener = $window.addEventListener.bind($window);

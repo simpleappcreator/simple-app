@@ -1,3 +1,4 @@
+module.exports = ngDirective;
 function ngDirective(name, linkFn, options) {
     var kebabCase = _.kebabCase(name);
     var camelCase = _.camelCase(name);

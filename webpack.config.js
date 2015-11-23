@@ -1,19 +1,21 @@
 require('unclog')('p');
-process.title = 'Webpack: ' + cwd;
+// process.title = 'Webpack: ' + cwd;
 var webpack = require('webpack');
 var entryPath = Path.join(__dirname, 'lib/client');
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     cache: true,
+    // watch: true,
+    colors: false,
     devtool: 'source-map',
-    entry: Path.join(entryPath, 'webpack.js'),
+    entry: Path.join(entryPath, 'webpack-entry.js'),
     output: {
         path: entryPath,
         publicPath: 'client/',
-        filename: 'root.webpack.min.js',
+        filename: 'webpack.min.js',
         // chunkFilename: '[chunkhash].js'
-        sourceMapFilename: 'root.webpack.min.js.map'
+        sourceMapFilename: 'webpack.min.js.map'
     },
     module: {
         loaders: [
@@ -32,9 +34,11 @@ module.exports = {
         ]
     },
     resolve: {
+        root: process.env.NODE_PATH.split(/[\;\:]/g),
         alias: {
-            angular: Path.join(entryPath, 'public/vendor/js/angular.js'),
-            jquery: Path.join(entryPath, 'public/vendor/js/jquery.js'),
+            // angular: Path.join(entryPath, 'public/vendor/js/angular.js'),
+            // jquery: Path.join(entryPath, 'public/vendor/js/jquery.js'),
+            // jquery: 'jquery/src/jquery',
         }
     },
     plugins: [
