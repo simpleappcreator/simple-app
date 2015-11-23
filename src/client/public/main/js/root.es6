@@ -1,10 +1,15 @@
 // module.exports = "simple-app";
 
+const _ = require('lodash');
+const $ = require('jquery');
+const moment = require('moment');
+
+
 var app = module.exports = angular.module('app', [
     'ngSanitize', 'ngAnimate', 'ngTouch',
-    'ngStorage',
-    'ui.utils',
-    'ngTemplates',
+    // require('angular-storage'),
+    // 'ui.utils',
+    // 'ngTemplates',
     // 'alertErr', 'durationPicker', 'startFrom', 'fromNow',
 ].concat(ngModules));
 //config(function($locationProvider){$locationProvider.html5Mode(true).hashPrefix('!')}).
@@ -14,7 +19,7 @@ app.controller('root', function(
     $timeout, $interval,
     $q,
     $location, $http,
-    $localStorage, $sessionStorage,
+    // $localStorage, $sessionStorage,
     $socket,
     $compile,
     $sce,
@@ -68,8 +73,8 @@ app.controller('root', function(
     $rootScope.$http = $rootScope.http = $http;
     // $http.defaults.cache = true;
 
-    $rootScope.$localStorage = $rootScope.$storage = $rootScope.storage = $rootScope.localStorage = $localStorage;
-    $rootScope.$sessionStorage = $rootScope.sessionStorage = $sessionStorage;
+    // $rootScope.$localStorage = $rootScope.$storage = $rootScope.storage = $rootScope.localStorage = $localStorage;
+    // $rootScope.$sessionStorage = $rootScope.sessionStorage = $sessionStorage;
     $rootScope.$socket = $rootScope.socket = $socket;
     $rootScope.$compile = $rootScope.compile = $compile;
     $rootScope.trustAsHtml = ::$sce.trustAsHtml;
@@ -79,7 +84,7 @@ app.controller('root', function(
     $rootScope.encodeURIComponent = encodeURIComponent;
     $rootScope.confirm = confirm;
     $rootScope.moment = moment;
-    $rootScope.slug = slug;
+    // $rootScope.slug = slug;
     $rootScope._ = _;
     $rootScope.copy = function(input) {
         return JSON.parse(JSON.stringify(input))
