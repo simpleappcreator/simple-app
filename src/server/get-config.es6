@@ -8,8 +8,26 @@ appdir = config.appdir = Path.dirname(require.main.filename) + '';
 _.extend(config, require('./config.default'));
 _.extend(config, process.env);
 try {
-    _.extend(config, require(appdir + '/config'));
+    let path = Path.join(appdir, '/config');
+    _.extend(config, require(path));
+    console.log('Config loaded from', path);
 } catch (err) {}
+try {
+    let path = Path.join(appdir, '../config');
+    _.extend(config, require(path));
+    console.log('Config loaded from', path);
+} catch (err) {}
+try {
+    let path = Path.join(appdir, '/lib/config');
+    _.extend(config, require(path));
+    console.log('Config loaded from', path);
+} catch (err) {}
+try {
+    let path = Path.join(appdir, '/server/config');
+    _.extend(config, require(path));
+    console.log('Config loaded from', path);
+} catch (err) {}
+
 
 for (let setting in config) {
     config[setting.toLowerCase()] = config[setting];
