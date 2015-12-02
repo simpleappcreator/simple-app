@@ -1,13 +1,12 @@
 require('unclog')('p');
-// process.title = 'Webpack: ' + cwd;
-var webpack = require('webpack');
-var entryPath = Path.join(__dirname, 'lib/client');
-var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+process.title = process.title.match(/gulp/i) ? process.title : cwd.split(/[\/\\]+/g).slice(-3).reverse().join(' ') + ' - Webpack';
+const webpack = require('webpack');
+const entryPath = Path.join(__dirname, 'lib/client');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     cache: true,
     // watch: true,
-    colors: false,
     devtool: 'source-map',
     entry: Path.join(entryPath, 'webpack-entry.js'),
     output: {
@@ -38,30 +37,33 @@ module.exports = {
         alias: {
             // angular: Path.join(entryPath, 'public/vendor/js/angular.js'),
             // jquery: Path.join(entryPath, 'public/vendor/js/jquery.js'),
-            // jquery: 'jquery/src/jquery',
         }
     },
     plugins: [
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
+            'window.jQuery': 'jquery',
             $: 'jquery',
-            angular: 'angular',
+            // angular: 'angular',
+            // 'window.angular': 'angular',
+            io: 'socket.io-client',
+            ngDirective: 'simple-app/lib/client/public/main/js/create-ng-directive.js',
+            app: 'simple-app/lib/client/public/main/js/root.js',
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     minimize: true,
-        //     compress: {
-        //         warnings: false,
-        //     },
-        //     mangle: {
-        //         except: ['$super', '$', 'exports', 'require', ],
-        //     },
-        //     output: {
-        //         comments: false,
-        //     },
-        // }),
-        // new ngAnnotatePlugin({
-        //     add: true,
-        //     // other ng-annotate options here
-        // }),
+        new ngAnnotatePlugin({
+            add: true,
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: {
+                warnings: false,
+            },
+            mangle: {
+                except: ['$super', '$', 'exports', 'require', ],
+            },
+            output: {
+                comments: false,
+            },
+        }),
     ]
 };

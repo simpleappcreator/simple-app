@@ -1,13 +1,8 @@
-// module.exports = "simple-app";
-
-const _ = require('lodash');
-const $ = require('jquery');
-const moment = require('moment');
-
-
 var app = module.exports = angular.module('app', [
     'ngSanitize', 'ngAnimate', 'ngTouch',
     // require('angular-storage'),
+    // 'ngStorage',
+    'angular-storage',
     // 'ui.utils',
     // 'ngTemplates',
     // 'alertErr', 'durationPicker', 'startFrom', 'fromNow',
@@ -19,7 +14,7 @@ app.controller('root', function(
     $timeout, $interval,
     $q,
     $location, $http,
-    // $localStorage, $sessionStorage,
+    localStorage, sessionStorage,
     $socket,
     $compile,
     $sce,
@@ -28,41 +23,13 @@ app.controller('root', function(
 
     window.$scope = $rootScope;
     $rootScope.$ = $;
-    try {
-        $rootScope.user = user
-    } catch (err) {
-        $rootScope.user = window.user
-    }
-    try {
-        $rootScope.err = err
-    } catch (err) {
-        $rootScope.err = window.err
-    }
-    try {
-        $rootScope.bc = bc
-    } catch (err) {
-        $rootScope.bc = window.bc
-    }
-    try {
-        $rootScope.data = data
-    } catch (err) {
-        $rootScope.data = window.data
-    }
-    try {
-        $rootScope.meta = meta
-    } catch (err) {
-        $rootScope.meta = window.meta
-    }
-    try {
-        $rootScope.refs = refs
-    } catch (err) {
-        $rootScope.refs = window.refs
-    }
-    try {
-        $rootScope.user = user
-    } catch (err) {
-        $rootScope.user = window.user
-    }
+    try { $rootScope.user = user } catch (err) { $rootScope.user = window.user } ;
+    try { $rootScope.err  = err  } catch (err) { $rootScope.err  = window.err  } ;
+    try { $rootScope.bc   = bc   } catch (err) { $rootScope.bc   = window.bc   } ;
+    try { $rootScope.data = data } catch (err) { $rootScope.data = window.data } ;
+    try { $rootScope.meta = meta } catch (err) { $rootScope.meta = window.meta } ;
+    try { $rootScope.refs = refs } catch (err) { $rootScope.refs = window.refs } ;
+    try { $rootScope.user = user } catch (err) { $rootScope.user = window.user } ;
 
     $rootScope.$window = $rootScope.window = $window;
     $rootScope.addEventListener = $window.addEventListener.bind($window);
@@ -73,8 +40,8 @@ app.controller('root', function(
     $rootScope.$http = $rootScope.http = $http;
     // $http.defaults.cache = true;
 
-    // $rootScope.$localStorage = $rootScope.$storage = $rootScope.storage = $rootScope.localStorage = $localStorage;
-    // $rootScope.$sessionStorage = $rootScope.sessionStorage = $sessionStorage;
+    // $rootScope.localStorage = $rootScope.$storage = $rootScope.storage = $rootScope.localStorage = localStorage;
+    // $rootScope.sessionStorage = $rootScope.sessionStorage = sessionStorage;
     $rootScope.$socket = $rootScope.socket = $socket;
     $rootScope.$compile = $rootScope.compile = $compile;
     $rootScope.trustAsHtml = ::$sce.trustAsHtml;
@@ -216,3 +183,5 @@ function textToDate(object) {
         return !!str.match(/[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}\:[0-9]{2}\:[0-9]{2}\.[0-9]{3}Z$/);
     }
 };
+
+globalize('app', app);

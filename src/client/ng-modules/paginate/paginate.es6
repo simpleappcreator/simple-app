@@ -1,3 +1,4 @@
+require('./paginate.styl');
 new ngDirective('paginate', function paginate($scope, element, attrs) {
 
     if ($scope.data && $scope.data.length) {

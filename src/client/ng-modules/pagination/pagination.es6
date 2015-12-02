@@ -1,3 +1,4 @@
+require('./pagination.styl');
 new ngDirective('pagination', function pagination($scope, element, attrs) {
 
     if ($scope.dataName) {

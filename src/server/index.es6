@@ -42,11 +42,11 @@ locals.moment = moment;
 locals._ = _;
 
 // DEV locals & debugging settings
-locals.name = config.name
-locals.nameslug = config.nameslug
-locals.Name = config.Name
-locals.title = config.Name
-locals.Title = config.Name
+locals.name = config.name;
+locals.nameslug = config.nameslug;
+locals.Name = config.Name;
+locals.title = config.Name;
+locals.Title = config.Name;
 locals.config = config;
 locals.resources = config.resources;
 locals.dev = dev;
@@ -64,8 +64,20 @@ if (dev) {
         res.header('Pragma', 'no-cache');
         next();
     });
-    app.use(compression);
+    if (config.webpack) {
+        try {
+            const webpackDevMiddleware = require('webpack-dev-middleware');
+            const webpack = require('webpack');
+            const webpackConfig = config.webpack;
+            const compiler = webpack(webpackConfig);
+            app.use(webpackDevMiddleware(compiler, webpackConfig));
+            console.log('Webpack middleware activated');
+        } catch (err) {
+            console.error(err);
+        }
+    }
 } else {
+    app.use(compression);
     locals.cache = true;
 }
 

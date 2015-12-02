@@ -1,4 +1,5 @@
 // ng-modules
+require('./public/main/js/create-ng-directive.js');
 require('./ng-modules/socket/socket.js');
 require('./ng-modules/masthead/masthead.js');
 require('./ng-modules/login/login.js');

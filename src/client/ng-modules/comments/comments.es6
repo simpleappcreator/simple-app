@@ -1,3 +1,4 @@
+require('./comments.styl');
 new ngDirective('comments', function comments($scope, element, attrs) {
     var comments = $scope.comments;
     $scope.removeComment = function(comment) {

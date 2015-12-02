@@ -7,7 +7,9 @@ appdir = config.appdir = Path.dirname(require.main.filename) + '';
 
 _.extend(config, require('./config.default'));
 _.extend(config, process.env);
-try {_.extend(config, require(appdir + '/config')); } catch (err) {}
+try {
+    _.extend(config, require(appdir + '/config'));
+} catch (err) {}
 
 for (let setting in config) {
     config[setting.toLowerCase()] = config[setting];
@@ -139,9 +141,11 @@ function devEnv(setting, value) {
 config['node_env'] = config['env'] = env == 'prod' ? 'production' : 'development';
 config.prod = env == 'prod';
 dev = config.dev = !config.prod
-// console.debug('dev:', dev);
+    // console.debug('dev:', dev);
 
-try {_.extend(config, require(appdir + '/config')); } catch (err) {}
+try {
+    _.extend(config, require(appdir + '/config'));
+} catch (err) {}
 
 
 if (!config.hostname) config.hostname = 'http://localhost';

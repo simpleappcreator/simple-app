@@ -1,4 +1,6 @@
-new ngDirective('autoSave', function autoSave($scope, element, attrs) {
+require('./auto-save.styl');
+
+new ngDirective('autoSave', $scope => {
     $scope.save = function save($event) {
         $scope.$emit('save', $event);
     }

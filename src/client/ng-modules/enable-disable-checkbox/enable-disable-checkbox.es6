@@ -1,3 +1,4 @@
+require('./enable-disable-checkbox.styl');
 new ngDirective('enableDisableCheckbox', function enableDisableCheckbox($scope, element, attrs) {
     $scope.attrs = attrs;
     $scope.input = {

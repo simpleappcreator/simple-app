@@ -16,3 +16,5 @@ function ngDirective(name, linkFn, options) {
             return options
         });
 }
+
+globalize('ngDirective', ngDirective);

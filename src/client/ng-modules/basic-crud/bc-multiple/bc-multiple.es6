@@ -1,4 +1,5 @@
-new ngDirective('bcMultiple', function bcMultiple($scope, element, attrs) {
+require('./bc-multiple.styl');
+new ngDirective('bcMultiple', $scope => {
     $scope.bc = bc;
     var data = $scope.data = $scope.data || bc.data || window.data || null;
     var refs = $scope.refs = $scope.refs || bc.refs || window.refs || {};

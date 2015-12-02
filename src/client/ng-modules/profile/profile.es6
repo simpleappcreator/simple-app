@@ -1,3 +1,4 @@
+require('./profile.styl');
 new ngDirective('profile', function profile($scope, element, attrs) {
     $scope.ignoredKeys = ['id', '_id', 'updated', 'login', 'created', 'admin', 'author', 'enabled', 'verified', 'user', 'username', 'name', 'email', 'provider'];
 

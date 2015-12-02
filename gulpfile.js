@@ -24,7 +24,7 @@ function getP(str) {
 }
 
 gulp.task('clean', done =>
-    del('lib/**'));
+    del('lib/**/*'));
 
 gulp.task('copy', done =>
     gulp.src(getP('all,!es6'))
@@ -88,5 +88,7 @@ gulp.task('watch', done => {
 gulp.task('webpack-watch', done => webpackTask('watch'));
 gulp.task('webpack-prod', done => webpackTask('production'));
 
-gulp.task('default', gulp.series('clean', 'copy', 'babel', gulp.parallel('watch', 'webpack-watch')));
+// gulp.task('default', gulp.series('clean', 'copy', 'babel', gulp.parallel('watch', 'webpack-watch')));
 gulp.task('prod', gulp.series('clean', 'copy', 'babel', 'webpack-prod'));
+
+gulp.task('default', gulp.series('clean', 'copy', 'babel', 'watch'));

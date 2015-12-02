@@ -1,3 +1,4 @@
+require('./bc-single.styl');
 new ngDirective('bcSingle', function bcSingle($scope, element, attrs) {
     $scope.bc = bc;
     var data = $scope.data = $scope.data || window.data || {};

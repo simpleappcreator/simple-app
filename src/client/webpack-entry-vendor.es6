@@ -1,10 +1,13 @@
 // Vendor
 require('babel-polyfill');
-require('lodash');
+
+require('smallilies');
+// require('lodash');
+// require('moment');
+
 require('jquery');
-require('moment');
 require('jquery-ui');
-require('bootstrap');
+require('bootstrap-webpack');
 require('angular');
 require('angular-animate');
 require('angular-sanitize');
@@ -15,6 +18,4 @@ require('angular-translate');
 require('ion-sound');
 require('socket.io-client');
 
-// require('angular-ui-utils');
-// require('./public/vendor/js/humanSeconds.js');
-// require('./public/vendor/js/query-selector.js');
+require('angular-ui-utils');

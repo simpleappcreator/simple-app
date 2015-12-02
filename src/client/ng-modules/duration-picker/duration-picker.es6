@@ -1,3 +1,4 @@
+require('./duration-picker.styl');
 new ngDirective('durationPicker', function durationPicker($scope, element, attrs) {
     $scope.name = attrs.name ? attrs.name : 'value';
     $scope.placeholder = attrs.placeholder ? attrs.placeholder : '';
