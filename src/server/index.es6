@@ -68,7 +68,12 @@ if (dev) {
         try {
             const webpackDevMiddleware = require('webpack-dev-middleware');
             const webpack = require('webpack');
-            const webpackConfig = config.webpack;
+            var webpackConfig = config.webpack;
+            webpackConfig.plugins = webpackConfig.plugins.reduce((plugins, plugin) => plugins.concat((
+                // Remove production-related plugins
+                'UglifyJsPlugin' == plugin.constructor.name ||
+                'ngAnnotatePlugin' == plugin.constructor.name
+            ) ? [] : [plugin]), []);
             const compiler = webpack(webpackConfig);
             app.use(webpackDevMiddleware(compiler, webpackConfig));
             console.log('Webpack middleware activated');
