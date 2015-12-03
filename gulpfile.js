@@ -24,7 +24,7 @@ function getP(str) {
 }
 
 gulp.task('clean', done =>
-    del('lib/**/*'));
+    del('lib'));
 
 gulp.task('copy', done =>
     gulp.src(getP('all,!es6'))
