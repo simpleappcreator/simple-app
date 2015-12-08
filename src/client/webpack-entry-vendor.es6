@@ -1,4 +1,5 @@
 // Vendor
+
 require('babel-polyfill');
 
 require('smallilies');

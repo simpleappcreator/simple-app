@@ -66,17 +66,29 @@ if (dev) {
     });
     if (config.webpack) {
         try {
-            const webpackDevMiddleware = require('webpack-dev-middleware');
             const webpack = require('webpack');
+            const webpackDev = require('webpack-dev-middleware');
+            const webpackHot = require('webpack-hot-middleware');
             var webpackConfig = config.webpack;
-            webpackConfig.plugins = webpackConfig.plugins.reduce((plugins, plugin) => plugins.concat((
-                // Remove production-related plugins
-                'UglifyJsPlugin' == plugin.constructor.name ||
-                'ngAnnotatePlugin' == plugin.constructor.name
-            ) ? [] : [plugin]), []);
+            // Add hot-module entry-path
+            var entry = Array.from(webpackConfig.entry);
+            entry.unshift('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000');
+            var plugins = webpackConfig.plugins;
+            // Remove production-related plugins
+            plugins.splice(plugins.findIndex(p => p.constructor.name == 'UglifyJsPlugin'), 1);
+            plugins.splice(plugins.findIndex(p => p.constructor.name == 'ngAnnotatePlugin'), 1);
+            // Add hot-module-related plugins
+            if (!plugins.find(p => p.constructor.name == 'OccurenceOrderPlugin')) plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+            if (!plugins.find(p => p.constructor.name == 'HotModuleReplacementPlugin')) plugins.push(new webpack.HotModuleReplacementPlugin());
+            if (!plugins.find(p => p.constructor.name == 'NoErrorsPlugin')) plugins.push(new webpack.NoErrorsPlugin());
             const compiler = webpack(webpackConfig);
-            app.use(webpackDevMiddleware(compiler, webpackConfig));
-            console.log('Webpack middleware activated');
+            app.use(webpackDev(compiler, webpackConfig));
+            app.use(webpackHot(compiler, _.extend({
+                log: ::console.log,
+                path: '/__webpack_hmr',
+                heartbeat: 10 * 1000,
+            }, webpackConfig)));
+            console.log('Webpack hot middleware activated');
         } catch (err) {
             console.error(err);
         }
