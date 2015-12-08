@@ -78,7 +78,7 @@ if (dev) {
             plugins.splice(plugins.findIndex(p => p.constructor.name == 'UglifyJsPlugin'), 1);
             plugins.splice(plugins.findIndex(p => p.constructor.name == 'ngAnnotatePlugin'), 1);
             // Add hot-module-related plugins
-            if (!plugins.find(p => p.constructor.name == 'OccurenceOrderPlugin')) plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+            // if (!plugins.find(p => p.constructor.name == 'OccurenceOrderPlugin')) plugins.push(new webpack.optimize.OccurenceOrderPlugin());
             if (!plugins.find(p => p.constructor.name == 'HotModuleReplacementPlugin')) plugins.push(new webpack.HotModuleReplacementPlugin());
             if (!plugins.find(p => p.constructor.name == 'NoErrorsPlugin')) plugins.push(new webpack.NoErrorsPlugin());
             const compiler = webpack(webpackConfig);
@@ -183,7 +183,7 @@ app.use(function(req, res, next) {
 
     // Last page
     session.lastpage = session.lastpage || '/';
-    if (req.method == 'GET' && !req.url.match(/test|login|register|logout|admin|sudo|\./))
+    if (req.method == 'GET' && !req.url.match(/test|login|register|logout|admin|sudo|\.|__/))
         session.lastpage = req.url;
 
     // volatile session error

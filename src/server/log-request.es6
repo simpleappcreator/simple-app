@@ -1,5 +1,6 @@
 var onFinished = require('on-finished');
 var UAparser = require('ua-parser').parse;
+var URL = require('url');
 
 var requestTimeout = 30;
 

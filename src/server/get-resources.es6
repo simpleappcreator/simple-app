@@ -186,7 +186,7 @@ resources.getConsolidatedNgTemplates = function() {
 
 // Minify
 // console.debug('\n' + JSON.stringify(resources, null, 1));
-if (!dev) {
+if (!dev && config.minify) {
     resources.getMinified = {};
     resources.getMinified.js = new Promise(function(resolve) {
         return resolve(minifyJS());
