@@ -1,6 +1,6 @@
 {
 "name"                   : "simple-app",
-"version"                : "6.0.2",
+"version"                : "6.0.3",
 "main"                   : "lib",
 "dependencies"           : {
 "smallilies"             : "^3.6.1",
