@@ -3,8 +3,8 @@
 "version"                : "6.0.0",
 "main"                   : "lib",
 "dependencies"           : {
-"smallilies"             : "^3.2.2",
-"unclog"                 : "^5.1.3",
+"smallilies"             : "^3.6.0",
+"unclog"                 : "^5.2.0",
 "babel-polyfill"         : "latest",
 "source-map-support"     : "^0.2",
 "bcrypt"                 : "^0.8",
