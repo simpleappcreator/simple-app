@@ -1,9 +1,9 @@
 console.verbose('Loading configs...');
 
-config = app.config = app.settings = app.settings || {};
+global.config = app.config = app.settings = app.settings || {};
 
-moddir = config.moddir = Path.join(__dirname, '..') + '';
-appdir = config.appdir = Path.dirname(require.main.filename) + '';
+global.moddir = config.moddir = Path.join(__dirname, '..') + '';
+global.appdir = config.appdir = Path.dirname(require.main.filename) + '';
 
 _.extend(config, require('./config.default'));
 _.extend(config, process.env);
@@ -158,7 +158,7 @@ function devEnv(setting, value) {
 
 config['node_env'] = config['env'] = env == 'prod' ? 'production' : 'development';
 config.prod = env == 'prod';
-dev = config.dev = !config.prod
+global.dev = config.dev = !config.prod
     // console.debug('dev:', dev);
 
 try {
@@ -167,7 +167,7 @@ try {
 
 
 if (!config.hostname) config.hostname = 'http://localhost';
-hostname = config.hostname;
+global.hostname = config.hostname;
 
 // config.Name = _.startCase(config.name);
 config.Name = config.name;

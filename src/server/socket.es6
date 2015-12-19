@@ -1,4 +1,4 @@
-io = app.io = module.exports =
+var io = app.io = module.exports =
     require('socket.io')
     .listen(app.server);
 

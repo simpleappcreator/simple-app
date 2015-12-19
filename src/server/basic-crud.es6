@@ -1,5 +1,5 @@
 // Defaults
-var bc = locals.bc = {
+var bc = app.locals.bc = {
     'ngTemplateMultipleFull': null,
     'ngTemplateMultipleForm': null,
     'ngTemplateSingleFull': null,

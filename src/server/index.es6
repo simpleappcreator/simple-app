@@ -4,8 +4,8 @@ console.log('Initializing...');
 require('unclog');
 
 // app core (express)
-express = require('express');
-app = module.exports = express();
+global.express = require('express');
+global.app = module.exports = express();
 app.express = express;
 app.Router = express.Router().bind(express);
 
@@ -17,13 +17,13 @@ require('./get-resources');
 require('./mongoose');
 
 // Express Addons
-compression = require('compression')();
-bodyParser = require('body-parser');
-connectRestreamer = require('connect-restreamer');
-methodOverride = require('method-override');
-stylus = require('stylus');
-nib = require('nib')();
-jade = require('jade');
+var compression = require('compression')();
+var bodyParser = require('body-parser');
+var connectRestreamer = require('connect-restreamer');
+var methodOverride = require('method-override');
+var stylus = require('stylus');
+var nib = require('nib')();
+var jade = require('jade');
 
 app.cookieParser = require('cookie-parser');
 app.secretSauce = app.get('name') + ' secret sauce';
@@ -34,7 +34,7 @@ require('./passport');
 
 
 // Middlewares
-locals = app.locals.locals = app.locals;
+var locals = app.locals.locals = app.locals;
 
 // Make utils available in Jade
 locals.tostr = tostr;
@@ -591,9 +591,9 @@ app.globalize = function globalize() {
 
 app.BasicCrud = require('./basic-crud');
 
-IP = app.get('ip');
-PORT = app.get('port');
-IP_PORT = IP + (PORT == 80 ? '' : (':' + PORT));
+var IP = app.get('ip');
+var PORT = app.get('port');
+var IP_PORT = IP + (PORT == 80 ? '' : (':' + PORT));
 
 function repl(rl) {
     rl.question('', function(command) {
