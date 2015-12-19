@@ -24,29 +24,19 @@ function getP(str) {
 }
 
 gulp.task('clean', done =>
-    del('lib'));
+    del('lib/**/*'));
 
 gulp.task('copy', done =>
     gulp.src(getP('all,!es6'))
-    .pipe(changed({
-        firstPass: true
-    }))
+    .pipe(changed({firstPass: true }))
     .pipe(gulp.dest('lib')));
 
 gulp.task('babel', done =>
     gulp.src(getP('es6'))
-    .pipe(changed({
-        firstPass: true
-    }))
+    .pipe(changed({firstPass: true }))
     .pipe(sourcemaps.init())
-    .pipe(babel({
-        presets: ['es2015', 'stage-0'],
-    retainLines: 'true',
-    }))
-    .pipe(replace(/(\/\/ )?["']use strict['"];?([\n\r]+)?/g, ''))
-    .pipe(sourcemaps.write('.', {
-        sourceRoot: 'src'
-    }))
+    .pipe(babel({presets: ['es2015', 'stage-0'], }))
+    .pipe(sourcemaps.write('.', {sourceRoot: 'src'}))
     .pipe(gulp.dest('lib')));
 
 
