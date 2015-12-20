@@ -1,10 +1,10 @@
 {
 "name"                   : "simple-app",
-"version"                : "6.0.5",
+"version"                : "6.0.6",
 "main"                   : "lib",
 "dependencies"           : {
-"smallilies"             : "^3.7.0",
-"unclog"                 : "^5.2.2",
+"smallilies"             : "^3.7.1",
+"unclog"                 : "^5.2.3",
 "babel-polyfill"         : "latest",
 "source-map-support"     : "^0.2",
 "bcryptjs"               : "^2.3",
